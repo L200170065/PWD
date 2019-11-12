@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Nov 2019 pada 11.04
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 5.6.39
+-- Generation Time: Nov 05, 2019 at 04:21 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,67 +25,66 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
-  `kode_barang` int(11) NOT NULL,
+  `kode_barang` char(5) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
-  `kode_gudang` int(11) NOT NULL
+  `kode_gudang` char(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`kode_barang`, `nama_barang`, `kode_gudang`) VALUES
-(0, 'sepatu', 2),
-(1, 'KURSI', 1),
-(2, 'MEJA', 2);
+('BR001', 'M15', 'GD002'),
+('BR002', 'Sabun', 'GD001');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gudang`
+-- Table structure for table `gudang`
 --
 
 CREATE TABLE `gudang` (
-  `kode_gudang` int(11) NOT NULL,
+  `kode_gudang` char(5) NOT NULL,
   `nama_gudang` varchar(50) NOT NULL,
-  `lokasi` varchar(50) NOT NULL
+  `lokasi_gudang` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gudang`
+-- Dumping data for table `gudang`
 --
 
-INSERT INTO `gudang` (`kode_gudang`, `nama_gudang`, `lokasi`) VALUES
-(1, 'VARKO', 'SOLO'),
-(2, 'JODA', 'SRAGEN');
+INSERT INTO `gudang` (`kode_gudang`, `nama_gudang`, `lokasi_gudang`) VALUES
+('GD001', 'Gudang X', 'Laweyan'),
+('GD002', 'Gudang Y', 'Joyosoongoo');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`kode_barang`),
-  ADD KEY `kode_gudang` (`kode_gudang`);
+  ADD KEY `barang_FKIndex1` (`kode_gudang`);
 
 --
--- Indeks untuk tabel `gudang`
+-- Indexes for table `gudang`
 --
 ALTER TABLE `gudang`
   ADD PRIMARY KEY (`kode_gudang`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `barang`
+-- Constraints for table `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`kode_gudang`) REFERENCES `gudang` (`kode_gudang`) ON DELETE CASCADE ON UPDATE CASCADE;
