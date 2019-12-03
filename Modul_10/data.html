@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Data Mahasiswa</title>
+    </head>
+    <body>
+        <xml ID='dsoData' SRC='data.xml' />
+        <h2>Data Mahasiswa</h2>
+        <table DATASRC='#dsoData' border="1" cellpadding='5'>
+            <thead>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Kota</th>
+            </thead>
+            <tr align="center">
+                <td><span DATAFDL='NIM'></span></td>
+                <td><span DATAFDL='Nama'></span></td>
+                <td><span DATAFDL='Kota'></span></td>
+            </tr>
+        </table>
+    </body>
+</html>

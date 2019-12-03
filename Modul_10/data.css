@@ -1,0 +1,23 @@
+ID{
+    display: block;
+}
+
+NIM{
+    color: red;
+}
+
+Nama{
+    color: rgb(225, 0, 255);
+    font-weight: bold;
+    font-size: 20pt;
+    background-color: rgb(0, 0, 0);
+}
+
+Kota{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+body{
+    background-color: brown;
+}
